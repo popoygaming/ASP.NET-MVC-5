@@ -1,0 +1,53 @@
+﻿@model Vidly.ViewModels.MovieViewModel
+@{
+    ViewBag.Title = @Model.FormActionName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <p></p>
+    <h2>@Model.FormActionName</h2>
+</div>
+@using (Html.BeginForm("Save", "Movies"))
+{
+    if (Model.Movie != null)
+    {
+        @Html.ValidationSummary(true, "Please fix the following errors.", new { @class = "field-validation-error" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Name)
+            @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Name)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.ReleaseDate)
+            @Html.TextBoxFor(m => m.Movie.ReleaseDate, "{0: d MMM yyyy}", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.Genre)
+            @Html.DropDownListFor(m => m.Movie.Genre, new SelectList(Model.GenreTypes, "Name", "Name"), "Select Genre", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Genre)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Movie.NumberInStock)
+            @Html.TextBoxFor(m => m.Movie.NumberInStock, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.NumberInStock)
+        </div>
+
+        <div class="form-group">
+            @Html.HiddenFor(m => m.Movie.Id)
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">SAVE</button>
+        </div>
+
+        @*<div class="form-group">
+                <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'" class="btn btn-primary">Turn on the light</button>
+                <img id="myImage" src="pic_bulboff.gif" style="width:200px">
+                <button onclick="document.getElementById('myImage').src='pic_bulboff.gif'" class="btn btn-primary">Turn off the light</button>
+            </div>*@
+    }
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

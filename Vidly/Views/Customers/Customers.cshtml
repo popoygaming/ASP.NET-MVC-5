@@ -1,0 +1,43 @@
+﻿@model Vidly.ViewModels.CustomerViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@using (Html.BeginForm("New", "Customers"))
+{
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">NEW CUSTOMER</button>
+    </div>
+}
+<div>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Customer</th>
+            <th>Discount Rate</th>
+            <th>Membership Type</th>
+        </tr>
+
+        @{
+            if (Model.Customers.Count() > 0)
+            {
+                foreach (var c in Model.Customers)
+                {
+                    <tr>
+                        <td><a href="~/Customers/Edit/@c.Id">@c.Name</a></td>
+                        <td>@c.MembershipType.DiscountRate%</td>
+                        <td>@c.MembershipType.Name</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td>We dont have any customers yet.</td>
+                </tr>
+            }
+        }
+    </table>
+</div>
