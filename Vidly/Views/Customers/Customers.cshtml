@@ -13,11 +13,12 @@
     </div>
 }
 <div>
-    <table class="table table-bordered table-hover">
+    <table id="customersTable" class="table table-bordered table-hover">
         <tr>
             <th>Customer</th>
             <th>Discount Rate</th>
             <th>Membership Type</th>
+            <th>Delete</th>
         </tr>
 
         @{
@@ -29,6 +30,9 @@
                         <td><a href="~/Customers/Edit/@c.Id">@c.Name</a></td>
                         <td>@c.MembershipType.DiscountRate%</td>
                         <td>@c.MembershipType.Name</td>
+                        <td>
+                            <button class="btn btn-link js-delete">Delete</button>
+                        </td>
                     </tr>
                 }
             }
@@ -41,3 +45,17 @@
         }
     </table>
 </div>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#customersTable .js-delete").on("click", function () {
+                if (confirm("Are you sure you want t delete this customer?")) {
+
+                }
+            });
+        });
+    </script>
+}
