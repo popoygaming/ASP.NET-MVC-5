@@ -20,7 +20,7 @@ namespace Vidly.Controllers.API
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/customers
+        // GET /api/customerss
         [HttpGet]
         public IHttpActionResult GetCustomers()
         {
