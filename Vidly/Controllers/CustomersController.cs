@@ -26,11 +26,12 @@ namespace Vidly.Controllers
         [Route("Customers")]
         public ActionResult Customers()
         {
-            var viewModel = new CustomerViewModel()
-            {
-                Customers = _context.Customers.Include(c => c.MembershipType)
-            };
-            return View(viewModel);
+            //var viewModel = new CustomerViewModel()
+            //{
+            //    Customers = _context.Customers.Include(c => c.MembershipType)
+            //};
+            //return View(viewModel);
+            return View();
         }
 
         [Route("Customers/Edit/{id}")]
