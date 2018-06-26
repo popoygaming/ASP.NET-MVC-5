@@ -9,6 +9,7 @@ using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
+    //[Authorize]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -23,6 +24,7 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize]
         [Route("Customers")]
         public ActionResult Customers()
         {

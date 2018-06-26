@@ -6,7 +6,7 @@ using System.Web;
 using Vidly.Dtos;
 using Vidly.Models;
 
-namespace Vidly.App_Start
+namespace Vidly
 {
     public class MappingProfile : Profile
     {
