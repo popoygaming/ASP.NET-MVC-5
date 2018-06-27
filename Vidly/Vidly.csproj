@@ -282,8 +282,20 @@
     <Compile Include="Migrations\201806261027027_SeedUsers.Designer.cs">
       <DependentUpon>201806261027027_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806271034074_AddDrivingLicenseToApplicationUser.cs" />
+    <Compile Include="Migrations\201806271034074_AddDrivingLicenseToApplicationUser.Designer.cs">
+      <DependentUpon>201806271034074_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806271047302_AddPhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201806271047302_AddPhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201806271047302_AddPhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806271054353_AddMobilePhoneToApplicationUser.cs" />
+    <Compile Include="Migrations\201806271054353_AddMobilePhoneToApplicationUser.Designer.cs">
+      <DependentUpon>201806271054353_AddMobilePhoneToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -291,9 +303,19 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
     <Compile Include="ViewModels\MovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -616,6 +638,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806261027027_SeedUsers.resx">
       <DependentUpon>201806261027027_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271034074_AddDrivingLicenseToApplicationUser.resx">
+      <DependentUpon>201806271034074_AddDrivingLicenseToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271047302_AddPhoneToApplicationUser.resx">
+      <DependentUpon>201806271047302_AddPhoneToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806271054353_AddMobilePhoneToApplicationUser.resx">
+      <DependentUpon>201806271054353_AddMobilePhoneToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
