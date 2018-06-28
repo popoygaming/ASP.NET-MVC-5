@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "Vidly\Vidly.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.UnitTests", "Vidly.UnitTests\Vidly.UnitTests.csproj", "{CDB5044F-5964-46B5-8D07-C02146F3B3A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.API", "Vidly.API\Vidly.API.csproj", "{587D722C-CBDD-4BC2-8079-8A68EFC23F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly.API.Tests", "Vidly.API.Tests\Vidly.API.Tests.csproj", "{7CED9D37-A5AA-456B-BD34-FE65AF486FB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CDB5044F-5964-46B5-8D07-C02146F3B3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDB5044F-5964-46B5-8D07-C02146F3B3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDB5044F-5964-46B5-8D07-C02146F3B3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{587D722C-CBDD-4BC2-8079-8A68EFC23F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587D722C-CBDD-4BC2-8079-8A68EFC23F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587D722C-CBDD-4BC2-8079-8A68EFC23F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587D722C-CBDD-4BC2-8079-8A68EFC23F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CED9D37-A5AA-456B-BD34-FE65AF486FB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CED9D37-A5AA-456B-BD34-FE65AF486FB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CED9D37-A5AA-456B-BD34-FE65AF486FB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CED9D37-A5AA-456B-BD34-FE65AF486FB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
