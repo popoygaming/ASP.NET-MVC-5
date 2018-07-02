@@ -6,10 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Runtime.Caching;
 
 namespace Vidly.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
@@ -24,10 +25,17 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        //[Route("Customers")]
         [Authorize]
-        [Route("Customers")]
-        public ActionResult Customers()
+        public ActionResult Index()
         {
+            // Caching data for frequently used data
+            if (MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
             //var viewModel = new CustomerViewModel()
             //{
             //    Customers = _context.Customers.Include(c => c.MembershipType)
@@ -69,7 +77,7 @@ namespace Vidly.Controllers
         public ActionResult Save(CustomerViewModel vModel)
         {
             var newCustomer = vModel.Customer;
-            
+
             // data validation
             if (!ModelState.IsValid)
             {

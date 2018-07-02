@@ -23,29 +23,31 @@ namespace Vidly.Controllers
         //    return Content(year + "/" + month);
         //}
 
-        public ActionResult Index(int? pageIndex, string sortBy)
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //    {
+        //        pageIndex = 1;
+        //    }
+
+        //    if (String.IsNullOrWhiteSpace(sortBy))
+        //    {
+        //        sortBy = "Name";
+        //    }
+
+        //    return Content(string.Format("pageIndex={0}&sortby={1}", pageIndex, sortBy));
+        //}
+
+
+        //[Route("Movies")]
+        public ActionResult Index()
         {
-            if (!pageIndex.HasValue)
-            {
-                pageIndex = 1;
-            }
-
-            if (String.IsNullOrWhiteSpace(sortBy))
-            {
-                sortBy = "Name";
-            }
-
-            return Content(string.Format("pageIndex={0}&sortby={1}", pageIndex, sortBy));
-        }
-
-        [Route("Movies")]
-        public ActionResult Movies()
-        {
-            var viewModel = new MovieViewModel()
-            {
-                Movies = _context.Movies.ToList()
-            };
-            return View(viewModel);
+            //var viewModel = new MovieViewModel()
+            //{
+            //    Movies = _context.Movies.ToList()
+            //};
+            //return View(viewModel);
+            return View();
         }
 
         [Authorize(Roles = RoleName.CanManageMovies)]
@@ -54,7 +56,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new MovieViewModel();
             var movies = _context.Movies;
-            viewModel.GenreTypes = _context.GenreTypes.ToList();
+            viewModel.Genres = _context.Genres.ToList();
 
             viewModel.Movie = movies.SingleOrDefault(c => c.Id == id);
             if (viewModel.Movie == null)
@@ -71,7 +73,7 @@ namespace Vidly.Controllers
         {
             var viewModel = new MovieViewModel();
             var movies = _context.Movies;
-            viewModel.GenreTypes = _context.GenreTypes.ToList();
+            viewModel.Genres = _context.Genres.ToList();
 
             viewModel.Movie = new Movie();
             return View("MovieForm", viewModel);

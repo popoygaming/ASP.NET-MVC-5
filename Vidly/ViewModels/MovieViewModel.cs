@@ -20,6 +20,6 @@ namespace Vidly.ViewModels
             }
         }
 
-        public List<Genre> GenreTypes { get; set; }
+        public List<Genre> Genres { get; set; }
     }
 }

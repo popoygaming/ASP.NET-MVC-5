@@ -1,4 +1,4 @@
-﻿@* no need model since we are now getting data using jquery *@
+﻿@* no need model since we are now getting data using ajax *@
 @*@model Vidly.ViewModels.CustomerViewModel*@
 @{
     ViewBag.Title = "Customers";
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
 
-        @* now being done by jquery call to api *@
+        @* now being done by ajax call to api *@
         @{
             @*if (Model.Customers.Count() > 0)
                 {

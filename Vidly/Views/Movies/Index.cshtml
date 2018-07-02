@@ -1,4 +1,4 @@
-﻿@* No need view model since we will be using jquery to fetch data from API *@
+﻿@* No need view model since we will be using ajax to fetch data from API *@
 @*@model Vidly.ViewModels.MovieViewModel*@
 
 @{
@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-        @* loading of data done by jquery *@
+        @* loading of data done by ajax *@
         @*@foreach (var movie in Model.Movies)
             {
                 <tr>
