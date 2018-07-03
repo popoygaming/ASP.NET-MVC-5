@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.API
 {
@@ -21,11 +22,18 @@ namespace Vidly.Controllers.API
 
         // GET /api/movies
         [HttpGet]
-        public IHttpActionResult GetMovies()
+        public IHttpActionResult GetMovies(string query = null)
         {
-            var retValue = _context.Movies
-                .ToList().Select(Mapper.Map<Movie, MovieDto>);
-            return Ok(retValue);
+            var moviesQuery = _context.Movies
+                //.Include(m => m.Genre)
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!string.IsNullOrWhiteSpace(query))
+                moviesQuery = moviesQuery.Where(m => m.Name.Contains(query));
+
+            var moviesDto = moviesQuery.ToList()
+                .Select(Mapper.Map<Movie, MovieDto>);
+            return Ok(moviesDto);
         }
 
         // GET /api/movies/1

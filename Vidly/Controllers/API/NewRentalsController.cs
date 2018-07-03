@@ -18,7 +18,7 @@ namespace Vidly.Controllers.API
         }
 
         [HttpPost]
-        public IHttpActionResult CreateNewRental(NewRentalDto newRental)
+        public IHttpActionResult NewRentals(NewRentalDto newRental)
         {
             if (ModelState.IsValid)
             {
