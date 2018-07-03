@@ -35,7 +35,6 @@
 @section scripts
 {
     <script>
-
         $(document).ready(function () {
             var vm = {
                 movieIds: []
@@ -49,7 +48,6 @@
                     wildcard: '%QUERY'
                 }
             });
-
             $('#customer').typeahead({
                 minLenght: 3,
                 highlight: true
@@ -61,7 +59,7 @@
                     vm.customerId = customer.id
                 });
 
-            // movies
+            // movies source
             var movies = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -70,7 +68,6 @@
                     wildcard: '%QUERY'
                 }
             });
-
             $('#movie').typeahead({
                 minLenght: 3,
                 highlight: true
@@ -85,6 +82,7 @@
                     vm.movieIds.push(movie.id);
                 });
 
+            // submit call
             $("#newRentalForm").submit(function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -100,6 +98,5 @@
                     })
             })
         });
-
     </script>
 }
